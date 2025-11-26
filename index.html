@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Minerals Dynamic Balance (LDM) – Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="badge">
+        <span class="badge-dot"></span>
+        LDM · Prototype
+      </div>
+
+      <h1>Minerals Dynamic Balance – Logical Dialectical Modeling Demo</h1>
+
+      <p class="subtitle">
+        A tiny, front-end-only prototype that illustrates how logical rules about mineral
+        concentrations can drive medical reasoning about a patient’s potential health state.
+      </p>
+    </header>
+
+    <main class="grid">
+      <!-- LEFT: Explanation -->
+      <section>
+        <div class="card">
+          <h2>What is this page?</h2>
+          <p>
+            This is a <strong>clickable demo</strong> of your research idea:
+            representing mineral levels with logical predicates and checking if a
+            patient satisfies the conditions for a potentially healthy state.
+          </p>
+
+          <div class="pill-row" style="margin-top: 14px;">
+            <span class="pill">First-order logic</span>
+            <span class="pill">Robinson theorem prover (concept)</span>
+            <span class="pill">22+ minerals</span>
+            <span class="pill">Medical diagnostics</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Logic behind the model (simplified)</h3>
+          <p>
+            In the full system, each mineral has a predicate that is true when its
+            concentration is within the normal range. If <em>all</em> predicates are true,
+            we infer that the body is in a potentially healthy state.
+          </p>
+
+          <div class="math">
+            ∀X ( K_normal(X) ∧ Ca_normal(X) ∧ Mg_normal(X) ∧ Zn_normal(X) → Healthy(X) )
+          </div>
+
+          <p style="margin-top: 8px;">
+            On this page we only show 4 minerals as a toy example. In your real
+            model, you would plug in all 22–28 minerals and use an automatic
+            theorem prover on the backend.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>How this could become a full app</h3>
+          <ul style="margin-left: 16px; margin-top: 6px; font-size: 14px; color: #d1d5db;">
+            <li>Connect to lab systems (blood plasma, fluorescence analysis)</li>
+            <li>Convert lab values → logical predicates (normal / low / high)</li>
+            <li>Run automatic theorem prover for diagnosis suggestions</li>
+            <li>Expose a clinician-friendly dashboard for decisions</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- RIGHT: Interactive demo -->
+      <section>
+        <div class="card demo-card">
+          <h3>Interactive demo: logical health check</h3>
+          <p>
+            Choose the status of each mineral. The “LDM engine” below will check whether
+            the patient satisfies the simplified theorem for a potentially healthy state.
+          </p>
+
+          <form id="minerals-form">
+            <label>
+              Potassium (K)
+              <select id="K">
+                <option value="normal" selected>Normal</option>
+                <option value="low">Low</option>
+                <option value="high">High</option>
+              </select>
+            </label>
+
+            <label>
+              Calcium (Ca)
+              <select id="Ca">
+                <option value="normal" selected>Normal</option>
+                <option value="low">Low</option>
+                <option value="high">High</option>
+              </select>
+            </label>
+
+            <label>
+              Magnesium (Mg)
+              <select id="Mg">
+                <option value="normal" selected>Normal</option>
+                <option value="low">Low</option>
+                <option value="high">High</option>
+              </select>
+            </label>
+
+            <label>
+              Zinc (Zn)
+              <select id="Zn">
+                <option value="normal" selected>Normal</option>
+                <option value="low">Low</option>
+                <option value="high">High</option>
+              </select>
+            </label>
+
+            <button type="button" id="run-check">
+              Run logical check
+            </button>
+          </form>
+
+          <div id="result" class="result" style="display:none;"></div>
+        </div>
+
+        <div class="card" style="margin-top: 16px;">
+          <h3>Notes for reviewers / supervisors</h3>
+          <p style="font-size: 13px;">
+            This page is intentionally front-end only:
+          </p>
+          <ul style="margin-left: 16px; margin-top: 6px; font-size: 13px; color: #d1d5db;">
+            <li>No database or backend is required.</li>
+            <li>Logic is represented at a toy level for clarity.</li>
+            <li>Can be easily extended with a real theorem prover API.</li>
+            <li>Styling is responsive so it works on mobile as well.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Prototype webpage for “Logical Dialectical Modeling of Mineral Balance”.
+      All medical decisions must be made by qualified clinicians using validated tools.
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
